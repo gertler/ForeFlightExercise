@@ -21,6 +21,10 @@
 		33494F7A2AB8C9280087C4CD /* WeatherConditions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F792AB8C9280087C4CD /* WeatherConditions.swift */; };
 		33494F802AB8F5140087C4CD /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F7F2AB8F5140087C4CD /* WeatherForecast.swift */; };
 		33494F822AB901740087C4CD /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 33494F812AB901740087C4CD /* .gitignore */; };
+		33494F852AB902F30087C4CD /* FFNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F842AB902F30087C4CD /* FFNavigationViewController.swift */; };
+		33494F872AB904770087C4CD /* AirportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F862AB904770087C4CD /* AirportsTableViewController.swift */; };
+		33494F8B2AB9070E0087C4CD /* AirportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F892AB9070E0087C4CD /* AirportTableViewCell.swift */; };
+		33494F8C2AB9070E0087C4CD /* AirportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33494F8A2AB9070E0087C4CD /* AirportTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,10 @@
 		33494F7E2AB8D9350087C4CD /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		33494F7F2AB8F5140087C4CD /* WeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
 		33494F812AB901740087C4CD /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		33494F842AB902F30087C4CD /* FFNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FFNavigationViewController.swift; sourceTree = "<group>"; };
+		33494F862AB904770087C4CD /* AirportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsTableViewController.swift; sourceTree = "<group>"; };
+		33494F892AB9070E0087C4CD /* AirportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportTableViewCell.swift; sourceTree = "<group>"; };
+		33494F8A2AB9070E0087C4CD /* AirportTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirportTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -112,6 +120,8 @@
 		33494F432AB8BCBB0087C4CD /* ForeFlightExercise */ = {
 			isa = PBXGroup;
 			children = (
+				33494F882AB906F50087C4CD /* Views */,
+				33494F832AB9029D0087C4CD /* ViewControllers */,
 				33494F742AB8BFCB0087C4CD /* Network */,
 				33494F442AB8BCBB0087C4CD /* AppDelegate.swift */,
 				33494F462AB8BCBB0087C4CD /* SceneDelegate.swift */,
@@ -158,6 +168,24 @@
 				33494F7F2AB8F5140087C4CD /* WeatherForecast.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		33494F832AB9029D0087C4CD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				33494F842AB902F30087C4CD /* FFNavigationViewController.swift */,
+				33494F862AB904770087C4CD /* AirportsTableViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		33494F882AB906F50087C4CD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				33494F892AB9070E0087C4CD /* AirportTableViewCell.swift */,
+				33494F8A2AB9070E0087C4CD /* AirportTableViewCell.xib */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -265,6 +293,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				33494F822AB901740087C4CD /* .gitignore in Resources */,
+				33494F8C2AB9070E0087C4CD /* AirportTableViewCell.xib in Resources */,
 				33494F512AB8BCBC0087C4CD /* LaunchScreen.storyboard in Resources */,
 				33494F4E2AB8BCBC0087C4CD /* Assets.xcassets in Resources */,
 				33494F4C2AB8BCBB0087C4CD /* Main.storyboard in Resources */,
@@ -296,8 +325,11 @@
 				33494F802AB8F5140087C4CD /* WeatherForecast.swift in Sources */,
 				33494F452AB8BCBB0087C4CD /* AppDelegate.swift in Sources */,
 				33494F7A2AB8C9280087C4CD /* WeatherConditions.swift in Sources */,
+				33494F852AB902F30087C4CD /* FFNavigationViewController.swift in Sources */,
 				33494F762AB8C0050087C4CD /* FFAPIController.swift in Sources */,
 				33494F472AB8BCBB0087C4CD /* SceneDelegate.swift in Sources */,
+				33494F8B2AB9070E0087C4CD /* AirportTableViewCell.swift in Sources */,
+				33494F872AB904770087C4CD /* AirportsTableViewController.swift in Sources */,
 				33494F782AB8C1310087C4CD /* WeatherReport.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
