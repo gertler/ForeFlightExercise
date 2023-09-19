@@ -101,6 +101,17 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
         self.navigationController?.pushViewController(detailsViewController, animated: true)
         self.tableView.deselectRow(at: indexPath, animated: true)
     }
+    
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.airports.remove(at: indexPath.row)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+    }
 
     /*
     // Override to support rearranging the table view.
@@ -116,22 +127,6 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
         return true
     }
     */
-
-    
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        guard let vc = segue.destination as? DetailsViewController else {
-            return
-        }
-        guard let row = tableView.indexPathForSelectedRow?.row else {
-            return
-        }
-        vc.airport = airports[row]
-    }
     
     // MARK: - UISearchResultsUpdating
     
@@ -149,6 +144,22 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
         }
 
         return
+    }
+    
+    // MARK: - UISearchBarDelegate
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        guard let searchText = searchBar.text?.uppercased() else {
+            return
+        }
+        
+        if !airports.contains(where: { $0.uppercased() == searchText }) {
+            airports.append(searchText)
+            tableView.reloadData()
+        }
+        
+        let detailsViewController = DetailsViewController.createDetailsViewController(searchText)
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
     }
     
 

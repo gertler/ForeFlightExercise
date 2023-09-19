@@ -23,7 +23,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cou-c0-HkN">
                                         <rect key="frame" x="0.0" y="0.0" width="361" height="600"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="r5b-Wf-L8H">
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="r5b-Wf-L8H">
                                                 <rect key="frame" x="0.0" y="0.0" width="361" height="600"/>
                                             </stackView>
                                         </subviews>

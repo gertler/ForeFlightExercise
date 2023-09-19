@@ -181,11 +181,9 @@
 		33494F832AB9029D0087C4CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				337C92222ABA0A750071F58B /* DetailsViewController */,
+				337C92212ABA0A4C0071F58B /* AirportsTableViewController */,
 				33494F842AB902F30087C4CD /* FFNavigationViewController.swift */,
-				33494F862AB904770087C4CD /* AirportsTableViewController.swift */,
-				33494F8D2AB915020087C4CD /* DetailsViewController.swift */,
-				331143072AB9E30400D46B1B /* SearchResultsTableViewController.swift */,
-				331143092AB9ED7700D46B1B /* DetailsViewController.storyboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -198,6 +196,24 @@
 				337C921F2AB9F8390071F58B /* DetailsScrollView.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		337C92212ABA0A4C0071F58B /* AirportsTableViewController */ = {
+			isa = PBXGroup;
+			children = (
+				33494F862AB904770087C4CD /* AirportsTableViewController.swift */,
+				331143072AB9E30400D46B1B /* SearchResultsTableViewController.swift */,
+			);
+			path = AirportsTableViewController;
+			sourceTree = "<group>";
+		};
+		337C92222ABA0A750071F58B /* DetailsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				33494F8D2AB915020087C4CD /* DetailsViewController.swift */,
+				331143092AB9ED7700D46B1B /* DetailsViewController.storyboard */,
+			);
+			path = DetailsViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -76,6 +76,7 @@ struct CloudLayer: Codable {
 
 enum CloudCoverage: String, Codable {
     case clear = "clr"
+    case skyClear = "skc"
     case few
     case scattered = "sct"
     case broken = "bkn"
