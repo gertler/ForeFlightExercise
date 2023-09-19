@@ -8,6 +8,8 @@
 import UIKit
 
 class AirportTableViewCell: UITableViewCell {
+    
+    static let reuse = "AirportTableViewCell"
 
     override func awakeFromNib() {
         super.awakeFromNib()

@@ -1,58 +1,78 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WCZ-4X-HQG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WCZ-4X-HQG">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--Root View Controller-->
-        <scene sceneID="fnh-Ai-xYJ">
+        <scene sceneID="ccD-1U-45Y">
             <objects>
-                <tableViewController id="W0q-D6-cbv" customClass="AirportsTableViewController" customModule="ForeFlightExercise" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="LxX-FF-5Nw">
+                <tableViewController id="tbG-L1-oGp" customClass="AirportsTableViewController" customModule="ForeFlightExercise" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="LJ4-wy-6Ll">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Q0x-Ha-DLH">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="hFW-Xf-qjJ">
                                 <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q0x-Ha-DLH" id="wCN-sX-AFa">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hFW-Xf-qjJ" id="0Td-na-ho8">
                                     <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
                         <connections>
-                            <outlet property="dataSource" destination="W0q-D6-cbv" id="bbp-qg-7Rh"/>
-                            <outlet property="delegate" destination="W0q-D6-cbv" id="pgf-M8-Gnh"/>
+                            <outlet property="dataSource" destination="tbG-L1-oGp" id="xmF-HJ-J2X"/>
+                            <outlet property="delegate" destination="tbG-L1-oGp" id="76j-nv-SeB"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="Ae2-wP-JEH"/>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="IBA-iS-NWz"/>
+                    <connections>
+                        <segue destination="Qlj-dV-GTa" kind="show" identifier="showDetails" id="7nb-6R-2qP"/>
+                    </connections>
                 </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Uax-rL-h6Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JtP-sV-MXg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1511" y="-173"/>
+            <point key="canvasLocation" x="1244" y="-180"/>
         </scene>
         <!--Item-->
-        <scene sceneID="E3T-J9-ucc">
+        <scene sceneID="0DK-l4-P2x">
             <objects>
-                <navigationController id="tCS-9J-3an" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="airplane" catalog="system" id="Tsj-CN-lBZ"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="DcO-lj-cnJ">
+                <navigationController id="Kep-aQ-hEF" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" image="airplane" catalog="system" id="hme-yV-9Qc"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="H0g-2s-3G8">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <connections>
-                        <segue destination="W0q-D6-cbv" kind="relationship" relationship="rootViewController" id="iGq-Sv-jsn"/>
+                        <segue destination="tbG-L1-oGp" kind="relationship" relationship="rootViewController" id="ceW-8R-KfY"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="6jF-Mr-7TQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IuR-dg-FzF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607" y="-173"/>
+            <point key="canvasLocation" x="338" y="-180"/>
+        </scene>
+        <!--Details View Controller-->
+        <scene sceneID="GI4-qe-ohz">
+            <objects>
+                <viewController id="Qlj-dV-GTa" customClass="DetailsViewController" customModule="ForeFlightExercise" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lSK-Jk-1qb">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="PkH-f5-1CV"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="cgy-yF-34w"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T63-ya-wuD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2173" y="-180"/>
         </scene>
         <!--Item 2-->
         <scene sceneID="nSr-b6-AMH">
@@ -80,8 +100,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="tCS-9J-3an" kind="relationship" relationship="viewControllers" id="Nxl-Sw-Nzm"/>
-                        <segue destination="4YL-B4-BzA" kind="relationship" relationship="viewControllers" id="juW-zk-yGL"/>
+                        <segue destination="Kep-aQ-hEF" kind="relationship" relationship="viewControllers" id="qFu-zr-KPd"/>
+                        <segue destination="4YL-B4-BzA" kind="relationship" relationship="viewControllers" id="65W-dY-Nwc"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0G-yG-GcP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

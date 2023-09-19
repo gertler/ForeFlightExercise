@@ -25,6 +25,7 @@
 		33494F872AB904770087C4CD /* AirportsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F862AB904770087C4CD /* AirportsTableViewController.swift */; };
 		33494F8B2AB9070E0087C4CD /* AirportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F892AB9070E0087C4CD /* AirportTableViewCell.swift */; };
 		33494F8C2AB9070E0087C4CD /* AirportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33494F8A2AB9070E0087C4CD /* AirportTableViewCell.xib */; };
+		33494F8E2AB915020087C4CD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F8D2AB915020087C4CD /* DetailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		33494F862AB904770087C4CD /* AirportsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportsTableViewController.swift; sourceTree = "<group>"; };
 		33494F892AB9070E0087C4CD /* AirportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportTableViewCell.swift; sourceTree = "<group>"; };
 		33494F8A2AB9070E0087C4CD /* AirportTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirportTableViewCell.xib; sourceTree = "<group>"; };
+		33494F8D2AB915020087C4CD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,6 +177,7 @@
 			children = (
 				33494F842AB902F30087C4CD /* FFNavigationViewController.swift */,
 				33494F862AB904770087C4CD /* AirportsTableViewController.swift */,
+				33494F8D2AB915020087C4CD /* DetailsViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -324,6 +327,7 @@
 				33494F492AB8BCBB0087C4CD /* ViewController.swift in Sources */,
 				33494F802AB8F5140087C4CD /* WeatherForecast.swift in Sources */,
 				33494F452AB8BCBB0087C4CD /* AppDelegate.swift in Sources */,
+				33494F8E2AB915020087C4CD /* DetailsViewController.swift in Sources */,
 				33494F7A2AB8C9280087C4CD /* WeatherConditions.swift in Sources */,
 				33494F852AB902F30087C4CD /* FFNavigationViewController.swift in Sources */,
 				33494F762AB8C0050087C4CD /* FFAPIController.swift in Sources */,
