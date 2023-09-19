@@ -11,7 +11,14 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
     
     // MARK: - Properties
     
-    private var airports: [String] = ["KPWM", "KAUS"]
+    private var airports: [String] {
+        get {
+            SavedAirportsHandler.shared.saved ?? []
+        }
+        set {
+            SavedAirportsHandler.shared.saved = newValue
+        }
+    }
     private var searchController: UISearchController?
     private var searchResultsTableController: SearchResultsTableViewController!
     
@@ -51,6 +58,7 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
                 
         // Add search bar to navigation
         self.navigationItem.searchController = self.searchController
+        self.searchController?.searchBar.placeholder = "Enter ICAO Airport Code"
         self.navigationItem.hidesSearchBarWhenScrolling = false
         self.definesPresentationContext = true
     }
@@ -153,6 +161,7 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
             return
         }
         
+        // If this is a new code, add it to our data source
         if !airports.contains(where: { $0.uppercased() == searchText }) {
             airports.append(searchText)
             tableView.reloadData()

@@ -20,11 +20,28 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0J-G5-mW3">
                                 <rect key="frame" x="16" y="122" width="361" height="680"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r5b-Wf-L8H">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="CMv-uS-9qf">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="0.0"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVk-4z-X9F" userLabel="Empty">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AMC-sz-efN">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="0.0"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="5qx-YT-O40"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r5b-Wf-L8H">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="0.0"/>
+                                        <subviews>
+                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYd-WN-2gM">
+                                                <rect key="frame" x="0.0" y="0.0" width="41.333333333333336" height="0.0"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" id="EAu-jU-9Gj"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -34,10 +51,15 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="r5b-Wf-L8H" firstAttribute="width" secondItem="J0J-G5-mW3" secondAttribute="width" id="Bo8-d3-vQn"/>
+                                    <constraint firstItem="CMv-uS-9qf" firstAttribute="top" secondItem="J0J-G5-mW3" secondAttribute="top" id="Eov-3H-jiy"/>
                                     <constraint firstItem="r5b-Wf-L8H" firstAttribute="top" secondItem="J0J-G5-mW3" secondAttribute="top" id="MXC-Il-XxI"/>
                                     <constraint firstAttribute="trailing" secondItem="r5b-Wf-L8H" secondAttribute="trailing" id="OGD-Zs-JXX"/>
+                                    <constraint firstItem="CMv-uS-9qf" firstAttribute="leading" secondItem="J0J-G5-mW3" secondAttribute="leading" id="eiv-F1-OBQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="CMv-uS-9qf" secondAttribute="bottom" id="kGU-78-v8j"/>
                                     <constraint firstAttribute="bottom" secondItem="r5b-Wf-L8H" secondAttribute="bottom" id="mJG-ZG-RY0"/>
+                                    <constraint firstAttribute="trailing" secondItem="CMv-uS-9qf" secondAttribute="trailing" id="ndn-oB-z5H"/>
                                     <constraint firstItem="r5b-Wf-L8H" firstAttribute="leading" secondItem="J0J-G5-mW3" secondAttribute="leading" id="pBx-Nl-wDe"/>
+                                    <constraint firstItem="CMv-uS-9qf" firstAttribute="width" secondItem="J0J-G5-mW3" secondAttribute="width" id="tqs-nI-hfl"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="PuK-jy-Mxl"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="J7b-TI-TlI"/>
@@ -48,6 +70,9 @@
                                     <segment title="Conditions"/>
                                     <segment title="Forecast"/>
                                 </segments>
+                                <connections>
+                                    <action selector="detailSegmentedControlValueChanged:" destination="Y6W-OH-hqX" eventType="valueChanged" id="MAR-yr-4tp"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
@@ -63,7 +88,9 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="stackView" destination="r5b-Wf-L8H" id="mXQ-Ot-WrJ"/>
+                        <outlet property="conditionsStackView" destination="r5b-Wf-L8H" id="Wiu-ud-COm"/>
+                        <outlet property="detailSegmentedControl" destination="Fk2-mz-VTD" id="SS4-UU-oKb"/>
+                        <outlet property="forecastStackView" destination="CMv-uS-9qf" id="nmC-Ex-u5t"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

@@ -14,6 +14,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        // On first launch, set the initial 2 ICAO codes; otherwise, the saved ones will be used
+        if SavedAirportsHandler.shared.firstLaunch {
+            SavedAirportsHandler.shared.firstLaunch = false
+            SavedAirportsHandler.shared.saved = ["KPWM", "KAUS"]
+        }
+        
         return true
     }
 

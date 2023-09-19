@@ -105,7 +105,11 @@ struct Wind: Codable {
 struct Remarks: Codable {
     let precipitationDiscriminator: Bool
     let humanObserver: Bool
+    let windFrom: Int?
+    let windSpeed: Int?
+    let windDate: Date?
     let seaLevelPressure: Float?
+    let sixHourMinimumTemperature: Float?
     let pressureTendancyRate: Float?
     let pressureTendancyCharacteristics: String?
     let temperature: Float?
