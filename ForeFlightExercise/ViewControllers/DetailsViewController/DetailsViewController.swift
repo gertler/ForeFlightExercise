@@ -145,11 +145,41 @@ class DetailsViewController: UIViewController {
         
         // Conditions
         for condition in forecast.conditions {
+            // Period first, to mark different condition block
+            helpGenerateLabel(for: forecastStackView, "Period", value: "")
+            helpGenerateLabel(for: forecastStackView, "Start Date", value: condition.period.dateStart.formatted(), tabbed: true)
+            helpGenerateLabel(for: forecastStackView, "End Date", value: condition.period.dateEnd.formatted(), tabbed: true)
+            
             helpGenerateLabel(for: forecastStackView, "Text", value: condition.text)
             helpGenerateLabel(for: forecastStackView, "Date", value: condition.dateIssued.formatted())
             helpGenerateLabel(for: forecastStackView, "Latitude", value: condition.latitude)
             helpGenerateLabel(for: forecastStackView, "Longitude", value: condition.longitude)
+            helpGenerateLabel(for: forecastStackView, "Elevation Ft", value: condition.elevationFt)
+            helpGenerateLabel(for: forecastStackView, "Relative Humidity", value: condition.relativeHumidity)
+            helpGenerateLabel(for: forecastStackView, "Flight Rules", value: condition.flightRules.rawValue.uppercased())
+            helpGenerateLabel(for: forecastStackView, cloudLayers: condition.cloudLayers)
             
+            if !condition.weather.isEmpty{
+                helpGenerateLabel(for: conditionsStackView, "Weather", value: condition.weather.joined(separator: ", "))
+            }
+            
+            // Visibility
+            helpGenerateLabel(for: forecastStackView, "Visibility", value: "")
+            helpGenerateLabel(for: forecastStackView, "Distance Sm", value: condition.visibility.distanceSm, tabbed: true)
+            helpGenerateLabel(for: forecastStackView, "Distance Qualifier", value: condition.visibility.distanceQualifier, tabbed: true)
+            helpGenerateLabel(for: forecastStackView, "Prevailing Vis Sm", value: condition.visibility.prevailingVisSm, tabbed: true)
+            helpGenerateLabel(for: forecastStackView, "Prevailing Vis Distance Qualifier", value: condition.visibility.prevailingVisDistanceQualifier, tabbed: true)
+            
+            // Wind
+            helpGenerateLabel(for: forecastStackView, "Wind", value: "")
+            helpGenerateLabel(for: forecastStackView, "Speed Kts", value: condition.wind.speedKts, tabbed: true)
+            helpGenerateLabel(for: forecastStackView, "Gust Speed Kts", value: condition.wind.gustSpeedKts, tabbed: true)
+            helpGenerateLabel(for: forecastStackView, "Direction", value: condition.wind.direction, tabbed: true)
+            helpGenerateLabel(for: forecastStackView, "Variable From", value: condition.wind.variableFrom, tabbed: true)
+            helpGenerateLabel(for: forecastStackView, "Variable To", value: condition.wind.variableTo, tabbed: true)
+            helpGenerateLabel(for: forecastStackView, "From", value: condition.wind.from, tabbed: true)
+            helpGenerateLabel(for: forecastStackView, "To", value: condition.wind.to, tabbed: true)
+            helpGenerateLabel(for: forecastStackView, "Variable", value: condition.wind.variable, tabbed: true)
         }
     }
     
