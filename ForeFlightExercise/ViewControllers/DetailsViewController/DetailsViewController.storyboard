@@ -20,29 +20,24 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J0J-G5-mW3">
                                 <rect key="frame" x="16" y="122" width="361" height="680"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cou-c0-HkN">
-                                        <rect key="frame" x="0.0" y="0.0" width="361" height="600"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="r5b-Wf-L8H">
+                                        <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="r5b-Wf-L8H">
-                                                <rect key="frame" x="0.0" y="0.0" width="361" height="600"/>
-                                            </stackView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sVk-4z-X9F" userLabel="Empty">
+                                                <rect key="frame" x="0.0" y="0.0" width="361" height="50"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <constraints>
-                                            <constraint firstItem="r5b-Wf-L8H" firstAttribute="leading" secondItem="cou-c0-HkN" secondAttribute="leading" id="Ub9-mG-Znw"/>
-                                            <constraint firstAttribute="trailing" secondItem="r5b-Wf-L8H" secondAttribute="trailing" id="bjs-S5-4da"/>
-                                            <constraint firstAttribute="height" constant="600" id="bjz-1S-m7m"/>
-                                            <constraint firstItem="r5b-Wf-L8H" firstAttribute="top" secondItem="cou-c0-HkN" secondAttribute="top" id="cvH-Dw-b7i"/>
-                                            <constraint firstAttribute="bottom" secondItem="r5b-Wf-L8H" secondAttribute="bottom" id="mUm-YA-d89"/>
-                                        </constraints>
-                                    </view>
+                                    </stackView>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="cou-c0-HkN" firstAttribute="leading" secondItem="J0J-G5-mW3" secondAttribute="leading" id="7GS-bc-Tbb"/>
-                                    <constraint firstAttribute="bottom" secondItem="cou-c0-HkN" secondAttribute="bottom" id="A5u-3q-eYN"/>
-                                    <constraint firstAttribute="trailing" secondItem="cou-c0-HkN" secondAttribute="trailing" id="eMs-Er-QOc"/>
-                                    <constraint firstItem="cou-c0-HkN" firstAttribute="top" secondItem="J0J-G5-mW3" secondAttribute="top" id="hp1-Ug-hN5"/>
-                                    <constraint firstItem="cou-c0-HkN" firstAttribute="width" secondItem="J0J-G5-mW3" secondAttribute="width" id="k0H-5m-dIB"/>
+                                    <constraint firstItem="r5b-Wf-L8H" firstAttribute="width" secondItem="J0J-G5-mW3" secondAttribute="width" id="Bo8-d3-vQn"/>
+                                    <constraint firstItem="r5b-Wf-L8H" firstAttribute="top" secondItem="J0J-G5-mW3" secondAttribute="top" id="MXC-Il-XxI"/>
+                                    <constraint firstAttribute="trailing" secondItem="r5b-Wf-L8H" secondAttribute="trailing" id="OGD-Zs-JXX"/>
+                                    <constraint firstAttribute="bottom" secondItem="r5b-Wf-L8H" secondAttribute="bottom" id="mJG-ZG-RY0"/>
+                                    <constraint firstItem="r5b-Wf-L8H" firstAttribute="leading" secondItem="J0J-G5-mW3" secondAttribute="leading" id="pBx-Nl-wDe"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="PuK-jy-Mxl"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="J7b-TI-TlI"/>
@@ -50,8 +45,8 @@
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fk2-mz-VTD">
                                 <rect key="frame" x="8" y="75" width="377" height="32"/>
                                 <segments>
-                                    <segment title="First"/>
-                                    <segment title="Second"/>
+                                    <segment title="Conditions"/>
+                                    <segment title="Forecast"/>
                                 </segments>
                             </segmentedControl>
                         </subviews>
@@ -68,7 +63,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="mainView" destination="cou-c0-HkN" id="tii-eF-fBI"/>
                         <outlet property="stackView" destination="r5b-Wf-L8H" id="mXQ-Ot-WrJ"/>
                     </connections>
                 </viewController>
