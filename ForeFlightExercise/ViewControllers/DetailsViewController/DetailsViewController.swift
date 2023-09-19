@@ -146,6 +146,10 @@ class DetailsViewController: UIViewController {
         // Conditions
         for condition in forecast.conditions {
             helpGenerateLabel(for: forecastStackView, "Text", value: condition.text)
+            helpGenerateLabel(for: forecastStackView, "Date", value: condition.dateIssued.formatted())
+            helpGenerateLabel(for: forecastStackView, "Latitude", value: condition.latitude)
+            helpGenerateLabel(for: forecastStackView, "Longitude", value: condition.longitude)
+            
         }
     }
     
