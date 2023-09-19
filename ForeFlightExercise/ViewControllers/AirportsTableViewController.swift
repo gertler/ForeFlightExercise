@@ -11,8 +11,9 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
     
     // MARK: - Properties
     
-    private var airports: [String]?
+    private var airports: [String] = ["KPWM", "KAUS"]
     private var searchController: UISearchController?
+    private var searchResultsTableController: SearchResultsTableViewController!
     
     // MARK: - Overrides
         
@@ -34,9 +35,13 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
     // MARK: - Setup Functions
     
     private func setupSearchController() {
+        // Instantiate Search Results Table View Controller
+        searchResultsTableController = self.storyboard?.instantiateViewController(withIdentifier: "SearchResultsTableViewController") as? SearchResultsTableViewController
+        searchResultsTableController.tableView.delegate = self
+        
         // Instantiate Search Controller
         // NOTE: This has to be passed nil to make sure self isn't removed from view hierarchy, which causes a black screen
-        self.searchController = UISearchController(searchResultsController: nil)
+        self.searchController = UISearchController(searchResultsController: searchResultsTableController)
         
         // Define delegates and setup
         self.searchController?.delegate = self
@@ -59,7 +64,7 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 3
+        return airports.count
     }
 
     
@@ -68,7 +73,7 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
 
         // Configure the cell...
         var content = cell.defaultContentConfiguration()
-        content.text = "Airport Code"
+        content.text = airports[indexPath.row]
         content.secondaryText = "Airport Other Information"
         cell.accessoryType = .disclosureIndicator
         cell.contentConfiguration = content
@@ -76,8 +81,25 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
         return cell
     }
     
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        self.performSegue(withIdentifier: "showDetails", sender: self)
+//    }
+    
+    // MARK: - UITableViewDelegate
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "showDetails", sender: self)
+        let selectedAirport: String!
+        
+        // Check if the selection is from default or search tableView
+        if tableView == self.tableView {
+            selectedAirport = airports[indexPath.row]
+        } else {
+            selectedAirport = searchResultsTableController.filteredAirports[indexPath.row]
+        }
+        
+        let detailsViewController = DetailsViewController.createDetailsViewController(selectedAirport)
+        self.navigationController?.pushViewController(detailsViewController, animated: true)
+        self.tableView.deselectRow(at: indexPath, animated: true)
     }
 
     /*
@@ -105,26 +127,27 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
         guard let vc = segue.destination as? DetailsViewController else {
             return
         }
-        guard let row = tableView.indexPathForSelectedRow?.row,
-              let _airports = self.airports else {
+        guard let row = tableView.indexPathForSelectedRow?.row else {
             return
         }
-        vc.airport = _airports[row]
+        vc.airport = airports[row]
     }
     
     // MARK: - UISearchResultsUpdating
     
     func updateSearchResults(for searchController: UISearchController) {
-        // TODO: Implement
-        guard let _airports = self.airports,
-              let searchText = searchController.searchBar.text else {
+        guard let searchText = searchController.searchBar.text else {
             return
         }
         
         let trimmed = searchText.trimmingCharacters(in: .whitespaces)
         
-        _airports.filter({ $0.contains(trimmed)})
-        
+        if let resultsController = searchController.searchResultsController as? SearchResultsTableViewController {
+            // Update filtered airports to only include matching characters (case insensitive)
+            resultsController.filteredAirports = airports.filter({ $0.range(of: trimmed, options: .caseInsensitive) != nil })
+            resultsController.tableView.reloadData()
+        }
+
         return
     }
     

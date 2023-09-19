@@ -11,12 +11,59 @@ class DetailsViewController: UIViewController {
     
     // MARK: - Properties
     
-    var airport: String?
+    var airport: String! {
+        didSet {
+            Task {
+                weatherReport = try await FFAPIController.shared.getWeather(airportID: airport)
+                setupViews()
+            }
+        }
+    }
+    var weatherReport: WeatherReport?
+        
+    // MARK: - Outlets
+    
+    @IBOutlet weak var mainView: UIView!
+    
+    @IBOutlet weak var stackView: UIStackView!
+    
+    // MARK: - Initialization
+    
+    static func createDetailsViewController(_ airport: String) -> UIViewController {
+        let storyboard = UIStoryboard(name: "DetailsViewController", bundle: nil)
+        
+        let vc = storyboard.instantiateViewController(withIdentifier: "DetailsViewController")
+        
+        // Set the airport
+        if let detailVC = vc as? DetailsViewController {
+            detailVC.airport = airport
+            detailVC.title = airport
+        }
+        return vc
+    }
+    
+    // MARK: - Overrides
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    // MARK: - Setup
+    
+    private func setupViews() {
+        guard let report = weatherReport else {
+            // TODO: Add empty state handler
+            return
+        }
+        
+        let textLabel = UILabel()
+        textLabel.text = report.conditions?.text
+        textLabel.lineBreakMode = .byCharWrapping
+        textLabel.numberOfLines = 0
+        textLabel.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
+        stackView.addArrangedSubview(textLabel)
     }
     
 

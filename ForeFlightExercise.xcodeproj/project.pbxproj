@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		331143082AB9E30400D46B1B /* SearchResultsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 331143072AB9E30400D46B1B /* SearchResultsTableViewController.swift */; };
+		3311430A2AB9ED7700D46B1B /* DetailsViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 331143092AB9ED7700D46B1B /* DetailsViewController.storyboard */; };
 		33494F452AB8BCBB0087C4CD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F442AB8BCBB0087C4CD /* AppDelegate.swift */; };
 		33494F472AB8BCBB0087C4CD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F462AB8BCBB0087C4CD /* SceneDelegate.swift */; };
 		33494F492AB8BCBB0087C4CD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F482AB8BCBB0087C4CD /* ViewController.swift */; };
@@ -26,6 +28,7 @@
 		33494F8B2AB9070E0087C4CD /* AirportTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F892AB9070E0087C4CD /* AirportTableViewCell.swift */; };
 		33494F8C2AB9070E0087C4CD /* AirportTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 33494F8A2AB9070E0087C4CD /* AirportTableViewCell.xib */; };
 		33494F8E2AB915020087C4CD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F8D2AB915020087C4CD /* DetailsViewController.swift */; };
+		337C92202AB9F8390071F58B /* DetailsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C921F2AB9F8390071F58B /* DetailsScrollView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		331143072AB9E30400D46B1B /* SearchResultsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResultsTableViewController.swift; sourceTree = "<group>"; };
+		331143092AB9ED7700D46B1B /* DetailsViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = DetailsViewController.storyboard; sourceTree = "<group>"; };
 		33494F412AB8BCBB0087C4CD /* ForeFlightExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ForeFlightExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		33494F442AB8BCBB0087C4CD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		33494F462AB8BCBB0087C4CD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -70,6 +75,7 @@
 		33494F892AB9070E0087C4CD /* AirportTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AirportTableViewCell.swift; sourceTree = "<group>"; };
 		33494F8A2AB9070E0087C4CD /* AirportTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AirportTableViewCell.xib; sourceTree = "<group>"; };
 		33494F8D2AB915020087C4CD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		337C921F2AB9F8390071F58B /* DetailsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScrollView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +184,8 @@
 				33494F842AB902F30087C4CD /* FFNavigationViewController.swift */,
 				33494F862AB904770087C4CD /* AirportsTableViewController.swift */,
 				33494F8D2AB915020087C4CD /* DetailsViewController.swift */,
+				331143072AB9E30400D46B1B /* SearchResultsTableViewController.swift */,
+				331143092AB9ED7700D46B1B /* DetailsViewController.storyboard */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -187,6 +195,7 @@
 			children = (
 				33494F892AB9070E0087C4CD /* AirportTableViewCell.swift */,
 				33494F8A2AB9070E0087C4CD /* AirportTableViewCell.xib */,
+				337C921F2AB9F8390071F58B /* DetailsScrollView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -295,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3311430A2AB9ED7700D46B1B /* DetailsViewController.storyboard in Resources */,
 				33494F822AB901740087C4CD /* .gitignore in Resources */,
 				33494F8C2AB9070E0087C4CD /* AirportTableViewCell.xib in Resources */,
 				33494F512AB8BCBC0087C4CD /* LaunchScreen.storyboard in Resources */,
@@ -332,6 +342,8 @@
 				33494F852AB902F30087C4CD /* FFNavigationViewController.swift in Sources */,
 				33494F762AB8C0050087C4CD /* FFAPIController.swift in Sources */,
 				33494F472AB8BCBB0087C4CD /* SceneDelegate.swift in Sources */,
+				331143082AB9E30400D46B1B /* SearchResultsTableViewController.swift in Sources */,
+				337C92202AB9F8390071F58B /* DetailsScrollView.swift in Sources */,
 				33494F8B2AB9070E0087C4CD /* AirportTableViewCell.swift in Sources */,
 				33494F872AB904770087C4CD /* AirportsTableViewController.swift in Sources */,
 				33494F782AB8C1310087C4CD /* WeatherReport.swift in Sources */,
