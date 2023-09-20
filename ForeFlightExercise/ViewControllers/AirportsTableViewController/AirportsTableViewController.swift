@@ -82,7 +82,7 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
         // Configure the cell...
         var content = cell.defaultContentConfiguration()
         content.text = airports[indexPath.row]
-        content.secondaryText = "Airport Other Information"
+        content.secondaryText = "Airport ICAO Code"
         cell.accessoryType = .disclosureIndicator
         cell.contentConfiguration = content
 
@@ -116,8 +116,19 @@ class AirportsTableViewController: UITableViewController, UISearchControllerDele
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
+            // Grab airport name before deletion
+            // This allows us to compare against cache for deletion there too
+            let airport = self.airports[indexPath.row].lowercased()
+            
+            // Remove row and data source value
             self.airports.remove(at: indexPath.row)
             self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            
+            // Remove from cache
+            SavedAirportsHandler.shared.cachedModels.removeAll { report in
+                let cAirport = report.conditions?.identity.lowercased() ?? ""
+                return airport == cAirport
+            }
         }
     }
 
