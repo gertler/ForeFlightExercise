@@ -50,6 +50,7 @@
                                     </stackView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="CMv-uS-9qf" secondAttribute="bottom" id="8DW-xi-tAB"/>
                                     <constraint firstItem="r5b-Wf-L8H" firstAttribute="width" secondItem="J0J-G5-mW3" secondAttribute="width" id="Bo8-d3-vQn"/>
                                     <constraint firstItem="CMv-uS-9qf" firstAttribute="top" secondItem="J0J-G5-mW3" secondAttribute="top" id="Eov-3H-jiy"/>
                                     <constraint firstItem="r5b-Wf-L8H" firstAttribute="top" secondItem="J0J-G5-mW3" secondAttribute="top" id="MXC-Il-XxI"/>
