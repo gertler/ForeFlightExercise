@@ -86,14 +86,68 @@
         <!--Item 2-->
         <scene sceneID="nSr-b6-AMH">
             <objects>
-                <viewController id="4YL-B4-BzA" sceneMemberID="viewController">
+                <viewController id="4YL-B4-BzA" customClass="SettingsViewController" customModule="ForeFlightExercise" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TXY-9D-r6f">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="iW0-td-q2d">
+                                <rect key="frame" x="32" y="123" width="329" height="118"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xur-n0-Iie">
+                                        <rect key="frame" x="59.000000000000014" y="0.0" width="211.33333333333337" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7P-eX-VZr">
+                                                <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bCV-io-9BA">
+                                                <rect key="frame" x="74.333333333333343" y="0.0" width="137" height="32"/>
+                                                <segments>
+                                                    <segment title="Imperial"/>
+                                                    <segment title="Metric"/>
+                                                </segments>
+                                                <connections>
+                                                    <action selector="unitsChanged:" destination="4YL-B4-BzA" eventType="valueChanged" id="OVe-Pf-j5t"/>
+                                                </connections>
+                                            </segmentedControl>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="L89-Q4-NR7">
+                                        <rect key="frame" x="51.000000000000014" y="87" width="227.33333333333337" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Should Convert:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdS-qj-BMT">
+                                                <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4kN-Em-9dd">
+                                                <rect key="frame" x="178.33333333333331" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="shouldConvertSwitched:" destination="4YL-B4-BzA" eventType="valueChanged" id="mrQ-s2-97g"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="u6v-kU-HOF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="iW0-td-q2d" firstAttribute="leading" secondItem="u6v-kU-HOF" secondAttribute="leading" constant="32" id="GZR-aU-Qhg"/>
+                            <constraint firstItem="u6v-kU-HOF" firstAttribute="trailing" secondItem="iW0-td-q2d" secondAttribute="trailing" constant="32" id="KcJ-yp-ZXp"/>
+                            <constraint firstItem="iW0-td-q2d" firstAttribute="top" secondItem="u6v-kU-HOF" secondAttribute="top" constant="64" id="XZb-We-2bG"/>
+                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" image="gear" catalog="system" id="VL5-fa-f2I"/>
+                    <connections>
+                        <outlet property="shouldConvertSwitch" destination="4kN-Em-9dd" id="VHJ-tO-Jhz"/>
+                        <outlet property="unitsSegmentedControl" destination="bCV-io-9BA" id="rmj-Jh-aAK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OA8-pN-9KP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

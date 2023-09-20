@@ -30,6 +30,9 @@
 		33494F8E2AB915020087C4CD /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33494F8D2AB915020087C4CD /* DetailsViewController.swift */; };
 		337C92202AB9F8390071F58B /* DetailsScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C921F2AB9F8390071F58B /* DetailsScrollView.swift */; };
 		337C92272ABA4B020071F58B /* UserDefaults+SavedAirports.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C92262ABA4B020071F58B /* UserDefaults+SavedAirports.swift */; };
+		337C92292ABA69550071F58B /* UserDefaults+UnitsConversion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C92282ABA69550071F58B /* UserDefaults+UnitsConversion.swift */; };
+		337C922B2ABA6A760071F58B /* UnitsConversionMiddleware.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C922A2ABA6A760071F58B /* UnitsConversionMiddleware.swift */; };
+		337C922E2ABA73150071F58B /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 337C922D2ABA73150071F58B /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +81,9 @@
 		33494F8D2AB915020087C4CD /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		337C921F2AB9F8390071F58B /* DetailsScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsScrollView.swift; sourceTree = "<group>"; };
 		337C92262ABA4B020071F58B /* UserDefaults+SavedAirports.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+SavedAirports.swift"; sourceTree = "<group>"; };
+		337C92282ABA69550071F58B /* UserDefaults+UnitsConversion.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserDefaults+UnitsConversion.swift"; sourceTree = "<group>"; };
+		337C922A2ABA6A760071F58B /* UnitsConversionMiddleware.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitsConversionMiddleware.swift; sourceTree = "<group>"; };
+		337C922D2ABA73150071F58B /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -184,6 +190,7 @@
 		33494F832AB9029D0087C4CD /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				337C922C2ABA73000071F58B /* SettingsViewController */,
 				337C92222ABA0A750071F58B /* DetailsViewController */,
 				337C92212ABA0A4C0071F58B /* AirportsTableViewController */,
 				33494F842AB902F30087C4CD /* FFNavigationViewController.swift */,
@@ -223,8 +230,18 @@
 			isa = PBXGroup;
 			children = (
 				337C92262ABA4B020071F58B /* UserDefaults+SavedAirports.swift */,
+				337C92282ABA69550071F58B /* UserDefaults+UnitsConversion.swift */,
+				337C922A2ABA6A760071F58B /* UnitsConversionMiddleware.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		337C922C2ABA73000071F58B /* SettingsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				337C922D2ABA73150071F58B /* SettingsViewController.swift */,
+			);
+			path = SettingsViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,15 +379,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				33494F492AB8BCBB0087C4CD /* ViewController.swift in Sources */,
+				337C922B2ABA6A760071F58B /* UnitsConversionMiddleware.swift in Sources */,
 				33494F802AB8F5140087C4CD /* WeatherForecast.swift in Sources */,
 				33494F452AB8BCBB0087C4CD /* AppDelegate.swift in Sources */,
 				33494F8E2AB915020087C4CD /* DetailsViewController.swift in Sources */,
 				337C92272ABA4B020071F58B /* UserDefaults+SavedAirports.swift in Sources */,
+				337C92292ABA69550071F58B /* UserDefaults+UnitsConversion.swift in Sources */,
 				33494F7A2AB8C9280087C4CD /* WeatherConditions.swift in Sources */,
 				33494F852AB902F30087C4CD /* FFNavigationViewController.swift in Sources */,
 				33494F762AB8C0050087C4CD /* FFAPIController.swift in Sources */,
 				33494F472AB8BCBB0087C4CD /* SceneDelegate.swift in Sources */,
 				331143082AB9E30400D46B1B /* SearchResultsTableViewController.swift in Sources */,
+				337C922E2ABA73150071F58B /* SettingsViewController.swift in Sources */,
 				337C92202AB9F8390071F58B /* DetailsScrollView.swift in Sources */,
 				33494F8B2AB9070E0087C4CD /* AirportTableViewCell.swift in Sources */,
 				33494F872AB904770087C4CD /* AirportsTableViewController.swift in Sources */,

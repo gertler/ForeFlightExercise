@@ -71,10 +71,10 @@ class DetailsViewController: UIViewController {
         helpGenerateLabel(for: conditionsStackView, "Latitude", value: conditions.latitude)
         helpGenerateLabel(for: conditionsStackView, "Longitude", value: conditions.longitude)
         helpGenerateLabel(for: conditionsStackView, "Elevation Ft", value: conditions.elevationFt)
-        helpGenerateLabel(for: conditionsStackView, "TempC", value: conditions.tempC)
-        helpGenerateLabel(for: conditionsStackView, "DewpointC", value: conditions.dewpointC)
-        helpGenerateLabel(for: conditionsStackView, "PressureHg", value: conditions.pressureHg)
-        helpGenerateLabel(for: conditionsStackView, "PressureHpa", value: conditions.pressureHpa)
+        helpGenerateLabel(for: conditionsStackView, "Temp C", value: conditions.tempC)
+        helpGenerateLabel(for: conditionsStackView, "Dewpoint C", value: conditions.dewpointC)
+        helpGenerateLabel(for: conditionsStackView, "Pressure Hg", value: conditions.pressureHg)
+        helpGenerateLabel(for: conditionsStackView, "Pressure Hpa", value: conditions.pressureHpa)
         helpGenerateLabel(for: conditionsStackView, "Reported As Hpa", value: conditions.reportedAsHpa)
         helpGenerateLabel(for: conditionsStackView, "Density Altitude Ft", value: conditions.densityAltitudeFt)
         helpGenerateLabel(for: conditionsStackView, "Relative Humidity", value: conditions.relativeHumidity)
@@ -204,7 +204,8 @@ class DetailsViewController: UIViewController {
         guard let _value = value else { return }
         
         let label = UILabel()
-        label.text = "\(tabbed ? "\t" : "")\(key): \(_value)"
+        let (k, v) = UnitsConversionMiddleware.shared.convert(key: key, value: _value)
+        label.text = "\(tabbed ? "\t" : "")\(k): \(v)"
         label.lineBreakMode = .byCharWrapping
         label.numberOfLines = 0
         label.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
