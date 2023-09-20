@@ -23,6 +23,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var conditionsTableView: UITableView!
     @IBOutlet weak var forecastTableView: UITableView!
     
+    @IBOutlet weak var errorView: UIView!
     
     // MARK: - Initialization
     
@@ -49,6 +50,7 @@ class DetailsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        errorView.isHidden = true
         conditionsStackView.isHidden = false
         forecastStackView.isHidden = true
         detailSegmentedControl.selectedSegmentIndex = 0
@@ -71,8 +73,10 @@ class DetailsViewController: UIViewController {
         guard let report = weatherReport,
               let conditions = report.conditions else {
             // TODO: Add empty state handler
+            errorView.isHidden = false
             return
         }
+        errorView.isHidden = true
         
         setBgColorByFlightRules(conditions.flightRules, for: conditionsStackView)
         
@@ -142,8 +146,10 @@ class DetailsViewController: UIViewController {
         guard let report = weatherReport,
               let forecast = report.forecast else {
             // TODO: Add empty state handler
+            errorView.isHidden = false
             return
         }
+        errorView.isHidden = true
                 
         helpGenerateLabel(for: forecastStackView, "Text", value: forecast.text)
         helpGenerateLabel(for: forecastStackView, "Date", value: forecast.dateIssued.formatted())
