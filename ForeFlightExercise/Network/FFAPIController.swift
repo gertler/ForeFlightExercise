@@ -10,10 +10,27 @@ import Foundation
 class FFAPIController {
     
     /// Singleton object for accessing ForeFlight API
-    static let shared = FFAPIController()
+    static let shared = FFAPIController.init()
+    
+    var refreshTimer: Timer!
+    var refreshSeconds = Double(60)
     
     private static let endpoint = "https://qa.foreflight.com/weather/report"
     
+    // MARK: - Init
+    
+    init() {
+        refreshTimer = Timer.scheduledTimer(withTimeInterval: refreshSeconds, repeats: true) { _ in
+            guard SavedAirportsHandler.shared.shouldCache else {
+                return
+            }
+            
+            Task {
+                await self.helpRefreshCache()
+            }
+        }
+    }
+        
     func getWeather(airportID: String) async throws -> WeatherReport {
         guard let url = URL(string: "\(FFAPIController.endpoint)/\(airportID)") else {
             throw FFAPIError.urlConstructionError
@@ -39,6 +56,27 @@ class FFAPIController {
         }
         
         SavedAirportsHandler.shared.cachedModels.append(report)
+    }
+    
+    private func helpRefreshCache() async {
+        try? await withThrowingTaskGroup(of: WeatherReport.self) { group in
+            for model in SavedAirportsHandler.shared.cachedModels {
+                guard let airport = model.conditions?.identity else {
+                    continue
+                }
+                
+                group.addTask {
+                    let report = try await self.getWeather(airportID: airport)
+                    return report
+                }
+            }
+            
+            var newCache: [WeatherReport] = []
+            for try await weatherReport in group {
+                newCache.append(weatherReport)
+            }
+            SavedAirportsHandler.shared.cachedModels = newCache
+        }
     }
     
 }
