@@ -1,6 +1,9 @@
 # ForeFlight Exercise README
 This project was built to demonstrate skills as an iOS developer for ForeFlight.
 
+## Time Spent
+I spent around 12 hours developing this app, over the course of 3 days. I began around 1pm 09/18/2023, and wrapped up to a good stopping point around 11am 09/20/2023. With more time though, I think I could greatly improve the Details page with graphics and nice formatting, as well as shift to a more MVVM approach from an MVC one.
+
 ## Design Decisions
 ### Decoding JSON
 I made the decision to "roll my own" `Codable` objects instead of finding a library for a few reasons:
