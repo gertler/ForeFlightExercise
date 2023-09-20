@@ -20,9 +20,9 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var forecastStackView: UIStackView!
     @IBOutlet weak var detailSegmentedControl: UISegmentedControl!
     
-    @IBOutlet weak var conditionsTableView: UITableView!
-    @IBOutlet weak var forecastTableView: UITableView!
     
+    @IBOutlet weak var conditionsScrollView: UIScrollView!
+    @IBOutlet weak var forecastScrollView: UIScrollView!
     @IBOutlet weak var errorView: UIView!
     
     // MARK: - Initialization
@@ -51,8 +51,8 @@ class DetailsViewController: UIViewController {
 
         // Do any additional setup after loading the view.
         errorView.isHidden = true
-        conditionsStackView.isHidden = false
-        forecastStackView.isHidden = true
+        conditionsScrollView.isHidden = false
+        forecastScrollView.isHidden = true
         detailSegmentedControl.selectedSegmentIndex = 0
                 
         // Load server data
@@ -279,11 +279,11 @@ class DetailsViewController: UIViewController {
         }
         
         if segControl.selectedSegmentIndex == 0 {
-            conditionsStackView.isHidden = false
-            forecastStackView.isHidden = true
+            conditionsScrollView.isHidden = false
+            forecastScrollView.isHidden = true
         } else {
-            conditionsStackView.isHidden = true
-            forecastStackView.isHidden = false
+            conditionsScrollView.isHidden = true
+            forecastScrollView.isHidden = false
         }
     }
     
