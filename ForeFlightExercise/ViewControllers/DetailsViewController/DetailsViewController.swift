@@ -11,15 +11,7 @@ class DetailsViewController: UIViewController {
     
     // MARK: - Properties
     
-    var airport: String! {
-        didSet {
-            Task {
-                weatherReport = try await FFAPIController.shared.getWeather(airportID: airport)
-                setConditionsViews()
-                setForecastViews()
-            }
-        }
-    }
+    var airport: String!
     var weatherReport: WeatherReport?
         
     // MARK: - Outlets
@@ -27,6 +19,10 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var conditionsStackView: UIStackView!
     @IBOutlet weak var forecastStackView: UIStackView!
     @IBOutlet weak var detailSegmentedControl: UISegmentedControl!
+    
+    @IBOutlet weak var conditionsTableView: UITableView!
+    @IBOutlet weak var forecastTableView: UITableView!
+    
     
     // MARK: - Initialization
     
@@ -37,6 +33,10 @@ class DetailsViewController: UIViewController {
         
         // Set the airport
         if let detailVC = vc as? DetailsViewController {
+            // Check if cached
+            if let model = checkCachedAirports(icaoCode: airport) {
+                detailVC.weatherReport = model
+            }
             detailVC.airport = airport
             detailVC.title = airport
         }
@@ -52,6 +52,17 @@ class DetailsViewController: UIViewController {
         conditionsStackView.isHidden = false
         forecastStackView.isHidden = true
         detailSegmentedControl.selectedSegmentIndex = 0
+                
+        // Load server data
+        // Or, use pre-set weatherReport if it was set due to caching
+        Task {
+            defer {
+                setConditionsViews()
+                setForecastViews()
+            }
+            guard weatherReport == nil else { return }
+            weatherReport = try await FFAPIController.shared.getWeather(airportID: airport)
+        }
     }
     
     // MARK: - Setup
@@ -237,6 +248,21 @@ class DetailsViewController: UIViewController {
             label.widthAnchor.constraint(equalToConstant: stackView.frame.width).isActive = true
             stackView.addArrangedSubview(label)
         }
+    }
+    
+    private static func checkCachedAirports(icaoCode airport: String) -> WeatherReport? {
+        // Check if caching is on
+        guard SavedAirportsHandler.shared.shouldCache else {
+            return nil
+        }
+        
+        // If model is in cache, return model
+        for model in SavedAirportsHandler.shared.cachedModels {
+            if model.conditions?.identity.lowercased() == airport.lowercased() {
+                return model
+            }
+        }
+        return nil
     }
     
     // MARK: - IBActions

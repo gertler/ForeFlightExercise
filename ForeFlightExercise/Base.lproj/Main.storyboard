@@ -92,10 +92,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="iW0-td-q2d">
-                                <rect key="frame" x="32" y="123" width="329" height="118"/>
+                                <rect key="frame" x="32" y="123" width="329" height="205"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="xur-n0-Iie">
-                                        <rect key="frame" x="59.000000000000014" y="0.0" width="211.33333333333337" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="xur-n0-Iie">
+                                        <rect key="frame" x="66.000000000000014" y="0.0" width="197.33333333333337" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Units:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7P-eX-VZr">
                                                 <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="31"/>
@@ -104,7 +104,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="bCV-io-9BA">
-                                                <rect key="frame" x="74.333333333333343" y="0.0" width="137" height="32"/>
+                                                <rect key="frame" x="60.333333333333343" y="0.0" width="137" height="32"/>
                                                 <segments>
                                                     <segment title="Imperial"/>
                                                     <segment title="Metric"/>
@@ -115,8 +115,8 @@
                                             </segmentedControl>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="56" translatesAutoresizingMaskIntoConstraints="NO" id="L89-Q4-NR7">
-                                        <rect key="frame" x="51.000000000000014" y="87" width="227.33333333333337" height="31"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="L89-Q4-NR7">
+                                        <rect key="frame" x="71.000000000000014" y="87" width="187.33333333333337" height="31"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Should Convert:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdS-qj-BMT">
                                                 <rect key="frame" x="0.0" y="0.0" width="122.33333333333333" height="31"/>
@@ -125,9 +125,26 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="4kN-Em-9dd">
-                                                <rect key="frame" x="178.33333333333331" y="0.0" width="51" height="31"/>
+                                                <rect key="frame" x="138.33333333333334" y="0.0" width="51" height="31"/>
                                                 <connections>
                                                     <action selector="shouldConvertSwitched:" destination="4YL-B4-BzA" eventType="valueChanged" id="mrQ-s2-97g"/>
+                                                </connections>
+                                            </switch>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="N3Y-C4-gFQ">
+                                        <rect key="frame" x="65.666666666666686" y="174" width="198" height="31"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Caching Enabled:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wi5-gf-85y">
+                                                <rect key="frame" x="0.0" y="0.0" width="133" height="31"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="eoC-U4-kPi">
+                                                <rect key="frame" x="149" y="0.0" width="51" height="31"/>
+                                                <connections>
+                                                    <action selector="shouldCacheSwitched:" destination="4YL-B4-BzA" eventType="valueChanged" id="2KS-2L-LvA"/>
                                                 </connections>
                                             </switch>
                                         </subviews>
@@ -145,6 +162,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" image="gear" catalog="system" id="VL5-fa-f2I"/>
                     <connections>
+                        <outlet property="shouldCacheSwitch" destination="eoC-U4-kPi" id="jJ9-eq-CGv"/>
                         <outlet property="shouldConvertSwitch" destination="4kN-Em-9dd" id="VHJ-tO-Jhz"/>
                         <outlet property="unitsSegmentedControl" destination="bCV-io-9BA" id="rmj-Jh-aAK"/>
                     </connections>

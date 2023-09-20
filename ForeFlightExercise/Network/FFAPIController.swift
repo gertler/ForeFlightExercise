@@ -29,7 +29,16 @@ class FFAPIController {
         decoder.dateDecodingStrategy = .iso8601
         let weatherData = try decoder.decode(WeatherData.self, from: data)
         
+        addToCache(weatherData.report)
         return weatherData.report
+    }
+    
+    private func addToCache(_ report: WeatherReport) {
+        guard SavedAirportsHandler.shared.shouldCache else {
+            return
+        }
+        
+        SavedAirportsHandler.shared.cachedModels.append(report)
     }
     
 }
