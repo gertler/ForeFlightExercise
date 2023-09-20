@@ -157,6 +157,7 @@ class DetailsViewController: UIViewController {
             helpGenerateLabel(for: forecastStackView, "Elevation Ft", value: condition.elevationFt)
             helpGenerateLabel(for: forecastStackView, "Relative Humidity", value: condition.relativeHumidity)
             helpGenerateLabel(for: forecastStackView, "Flight Rules", value: condition.flightRules.rawValue.uppercased())
+            helpGenerateLabel(for: forecastStackView, "Cloud Layers", value: "")
             helpGenerateLabel(for: forecastStackView, cloudLayers: condition.cloudLayers)
             
             if !condition.weather.isEmpty{
