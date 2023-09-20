@@ -47,7 +47,7 @@ class SearchResultsTableViewController: UITableViewController {
         // Configure the cell...
         var content = cell.defaultContentConfiguration()
         content.text = filteredAirports[indexPath.row]
-        content.secondaryText = "Airport Other Information"
+        content.secondaryText = "Airport ICAO Code"
         cell.accessoryType = .disclosureIndicator
         cell.contentConfiguration = content
 
