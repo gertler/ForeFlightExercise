@@ -64,6 +64,14 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="PuK-jy-Mxl"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="J7b-TI-TlI"/>
                             </scrollView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="cNF-DW-H28">
+                                <rect key="frame" x="0.0" y="122" width="393" height="696"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="MiD-7v-9Hl">
+                                <rect key="frame" x="0.0" y="122" width="393" height="696"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Fk2-mz-VTD">
                                 <rect key="frame" x="8" y="75" width="377" height="32"/>
                                 <segments>
@@ -79,23 +87,33 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="Fk2-mz-VTD" secondAttribute="trailing" constant="8" id="4kh-DE-19q"/>
+                            <constraint firstItem="MiD-7v-9Hl" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="9Mn-0r-5Wq"/>
                             <constraint firstItem="J0J-G5-mW3" firstAttribute="top" secondItem="Fk2-mz-VTD" secondAttribute="bottom" constant="16" id="ArE-iN-hKh"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="cNF-DW-H28" secondAttribute="trailing" id="Lpi-ji-KId"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="J0J-G5-mW3" secondAttribute="bottom" constant="16" id="RJz-Uf-gLq"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="MiD-7v-9Hl" secondAttribute="trailing" id="TFk-z9-UVQ"/>
+                            <constraint firstItem="cNF-DW-H28" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="Ukq-at-BiG"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="MiD-7v-9Hl" secondAttribute="bottom" id="ZgV-AL-KAI"/>
+                            <constraint firstItem="cNF-DW-H28" firstAttribute="top" secondItem="Fk2-mz-VTD" secondAttribute="bottom" constant="16" id="bbr-3z-J3B"/>
+                            <constraint firstItem="MiD-7v-9Hl" firstAttribute="top" secondItem="Fk2-mz-VTD" secondAttribute="bottom" constant="16" id="iue-kP-zey"/>
                             <constraint firstItem="Fk2-mz-VTD" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="16" id="jnL-P3-FhL"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="J0J-G5-mW3" secondAttribute="trailing" constant="16" id="l5H-tN-F4C"/>
                             <constraint firstItem="Fk2-mz-VTD" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="8" id="nRS-ff-aKd"/>
                             <constraint firstItem="J0J-G5-mW3" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" constant="16" id="rSJ-wi-xcX"/>
+                            <constraint firstItem="vDu-zF-Fre" firstAttribute="bottom" secondItem="cNF-DW-H28" secondAttribute="bottom" id="zBf-Py-vUO"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="conditionsStackView" destination="r5b-Wf-L8H" id="Wiu-ud-COm"/>
+                        <outlet property="conditionsTableView" destination="cNF-DW-H28" id="AXz-bN-xEe"/>
                         <outlet property="detailSegmentedControl" destination="Fk2-mz-VTD" id="SS4-UU-oKb"/>
                         <outlet property="forecastStackView" destination="CMv-uS-9qf" id="nmC-Ex-u5t"/>
+                        <outlet property="forecastTableView" destination="MiD-7v-9Hl" id="GTI-C1-dbL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="4"/>
+            <point key="canvasLocation" x="139.69465648854961" y="3.5211267605633805"/>
         </scene>
     </scenes>
     <resources>

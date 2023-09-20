@@ -13,6 +13,7 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var unitsSegmentedControl: UISegmentedControl!
     @IBOutlet weak var shouldConvertSwitch: UISwitch!
+    @IBOutlet weak var shouldCacheSwitch: UISwitch!
     
     // MARK: - Overrides
 
@@ -22,15 +23,22 @@ class SettingsViewController: UIViewController {
         // Do any additional setup after loading the view.
         self.title = "Settings"
         
+        // Units setup
         if UnitsConversionHandler.shared.units == .imperial {
             unitsSegmentedControl.selectedSegmentIndex = 0
         } else {
             unitsSegmentedControl.selectedSegmentIndex = 1
         }
         
+        // Should Convert Setup
         let shouldConvert = UnitsConversionHandler.shared.shouldConvert
         shouldConvertSwitch.isOn = shouldConvert
         toggleShouldConvert(shouldConvert)
+        
+        // Should Cache Setup
+        let shouldCache = SavedAirportsHandler.shared.shouldCache
+        shouldCacheSwitch.isOn = shouldCache
+        toggleShouldCache(shouldCache)
     }
     
     // MARK: - Helper Functions
@@ -39,6 +47,11 @@ class SettingsViewController: UIViewController {
         shouldConvertSwitch.isOn = isOn
         UnitsConversionHandler.shared.shouldConvert = isOn
         unitsSegmentedControl.isEnabled = isOn
+    }
+    
+    private func toggleShouldCache(_ isOn: Bool) {
+        shouldCacheSwitch.isOn = isOn
+        SavedAirportsHandler.shared.shouldCache = isOn
     }
     
     // MARK: - IBActions
@@ -56,21 +69,19 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func shouldConvertSwitched(_ sender: Any) {
-        guard let sw = sender as? UISwitch else {
+        guard let sw = sender as? UISwitch,
+              sw == shouldConvertSwitch else {
             return
         }
         toggleShouldConvert(sw.isOn)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func shouldCacheSwitched(_ sender: Any) {
+        guard let sw = sender as? UISwitch,
+              sw == shouldCacheSwitch else {
+            return
+        }
+        toggleShouldCache(sw.isOn)
     }
-    */
 
 }

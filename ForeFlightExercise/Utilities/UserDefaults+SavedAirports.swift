@@ -12,6 +12,8 @@ class SavedAirportsHandler {
     enum UDKeys: String {
         case savedAirports
         case firstLaunch
+        case cachedModels
+        case shouldCache
     }
     
     static let shared = SavedAirportsHandler()
@@ -22,6 +24,19 @@ class SavedAirportsHandler {
         }
         set {
             UserDefaults.standard.setValue(newValue, forKey: UDKeys.savedAirports.rawValue)
+        }
+    }
+    
+    // Cache resets after each app launch
+    // NOTE: This could be changed, but this is specifically chosen to make sure stale data isn't cached
+    var cachedModels: [WeatherReport] = []
+    
+    var shouldCache: Bool {
+        get {
+            UserDefaults.standard.bool(forKey: UDKeys.shouldCache.rawValue)
+        }
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: UDKeys.shouldCache.rawValue)
         }
     }
     
